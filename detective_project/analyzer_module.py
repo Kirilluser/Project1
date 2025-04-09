@@ -24,7 +24,8 @@ def get_word_statistics(text):
     with open("results/frequient_words.csv", "w", encoding='utf-8', newline="") as fi:
         writer = csv.writer(fi)
         writer.writerow(["Слово","Частота"])
-        writer.writerow(top_10)
+        for word, freq in top_10:
+            writer.writerow([word, freq])
     lines = text.strip().splitlines()
     total_lines = len(lines)
     total_words = len(words)
